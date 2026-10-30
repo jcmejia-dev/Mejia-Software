@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { conditionFromCode } from "@/lib/weather";
+import { conditionFromCode } from "../lib/weather";
 
 describe("conditionFromCode", () => {
   it.each([
