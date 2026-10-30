@@ -6,94 +6,13 @@ import { labs, openSourceProjects, products, projects } from "@/lib/projects";
 
 export default function HomePage() {
   const featured = projects.filter((project) => project.featured);
+  return <>
+    <section className="hero hero-weather-layout"><div className="shell hero-grid"><div className="hero-copy-column"><p className="kicker">Independent software studio by Jamie Mejia</p><h1>Software built for <span>real problems.</span></h1><p className="hero-copy">Mejia Software is the central home for practical products, automation, open-source work, experiments, and AI-assisted applications that are designed, tested, and maintained—not just demos.</p><div className="hero-actions"><Link className="button" href="/products">Explore products <ArrowRight size={17}/></Link><Link className="button button-secondary" href="/tools">Use free tools</Link><a className="button button-secondary" href="https://github.com/jcmejia-dev" target="_blank" rel="noreferrer"><GitBranch size={17}/>View GitHub</a></div><div className="hero-principle"><span>Studio principle</span><strong>Build. Verify. Ship. Improve.</strong></div></div><div className="hero-weather-shell"><div className="hero-curve" aria-hidden="true"/><WeatherWidget/></div></div></section>
 
-  return (
-    <>
-      <section className="hero">
-        <div className="shell hero-grid">
-          <div>
-            <p className="kicker">Independent software studio by Jamie Mejia</p>
-            <h1>Software built for <span>real problems.</span></h1>
-            <p className="hero-copy">
-              Mejia Software is the central home for practical products, automation, open-source work,
-              experiments, and AI-assisted applications that are designed, tested, and maintained—not just demos.
-            </p>
-            <div className="hero-actions">
-              <Link className="button" href="/products">Explore products <ArrowRight size={17} /></Link>
-              <Link className="button button-secondary" href="/tools">Use free tools</Link>
-              <a className="button button-secondary" href="https://github.com/jcmejia-dev" target="_blank" rel="noreferrer">
-                <GitBranch size={17} /> View GitHub
-              </a>
-            </div>
-          </div>
-          <aside className="hero-note" aria-label="Studio principle">
-            <p className="eyebrow">Studio principle</p>
-            <strong>Build. Verify. Ship. Improve.</strong>
-            <p>AI accelerates the workflow. Engineering judgment, review, testing, debugging, and maintenance remain human responsibilities.</p>
-          </aside>
-        </div>
-      </section>
+    <section className="section"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Featured work</p><h2>Software you can inspect.</h2><p>Statuses are intentionally conservative. A prototype is labeled as a prototype; public links appear only when they exist.</p></div><Link className="text-link" href="/products">All products <ArrowRight size={15}/></Link></div><div className="project-grid">{featured.map(project=><ProjectCard key={project.slug} project={project}/>)}</div></div></section>
 
-      <section className="section">
-        <div className="shell">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">Featured work</p>
-              <h2>Software you can inspect.</h2>
-              <p>Statuses are intentionally conservative. A prototype is labeled as a prototype; public links appear only when they exist.</p>
-            </div>
-            <Link className="text-link" href="/products">All products <ArrowRight size={15} /></Link>
-          </div>
-          <div className="project-grid">
-            {featured.map((project) => <ProjectCard key={project.slug} project={project} />)}
-          </div>
-        </div>
-      </section>
+    <section className="section section-muted"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Software hub</p><h2>A workspace, not a résumé.</h2><p>The hub combines real integrations and release information with fast paths into products, tools, labs, and source code.</p></div></div><div className="panel catalog-panel"><p className="eyebrow">Studio snapshot</p><h3>Current catalog</h3><p>Counts below are derived from the catalog itself, so the dashboard never needs invented usage or customer metrics.</p><div className="stat-grid"><div className="stat"><strong>{products.length}</strong><span>Products</span></div><div className="stat"><strong>{openSourceProjects.length}</strong><span>Open source</span></div><div className="stat"><strong>{labs.length}</strong><span>Labs</span></div></div><div className="hub-links"><Link href="/open-source"><Code2 size={18}/><span><strong>Open source</strong><small>Review public repositories</small></span><ArrowRight size={16}/></Link><Link href="/labs"><Sparkles size={18}/><span><strong>Labs</strong><small>Explore experimental work</small></span><ArrowRight size={16}/></Link><Link href="/tools"><Layers3 size={18}/><span><strong>Free tools</strong><small>Utilities will ship here as they are validated</small></span><ArrowRight size={16}/></Link></div></div></div></section>
 
-      <section className="section section-muted">
-        <div className="shell">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">Software hub</p>
-              <h2>A workspace, not a résumé.</h2>
-              <p>The hub combines real integrations and release information with fast paths into products, tools, labs, and source code.</p>
-            </div>
-          </div>
-          <div className="workspace">
-            <div className="panel">
-              <p className="eyebrow">Studio snapshot</p>
-              <h3>Current catalog</h3>
-              <p>Counts below are derived from the catalog itself, so the dashboard never needs invented usage or customer metrics.</p>
-              <div className="stat-grid">
-                <div className="stat"><strong>{products.length}</strong><span>Products</span></div>
-                <div className="stat"><strong>{openSourceProjects.length}</strong><span>Open source</span></div>
-                <div className="stat"><strong>{labs.length}</strong><span>Labs</span></div>
-              </div>
-              <div className="hub-links">
-                <Link href="/open-source"><Code2 size={18} /><span><strong>Open source</strong><small>Review public repositories</small></span><ArrowRight size={16} /></Link>
-                <Link href="/labs"><Sparkles size={18} /><span><strong>Labs</strong><small>Explore experimental work</small></span><ArrowRight size={16} /></Link>
-                <Link href="/tools"><Layers3 size={18} /><span><strong>Free tools</strong><small>Utilities will ship here as they are validated</small></span><ArrowRight size={16} /></Link>
-              </div>
-            </div>
-            <WeatherWidget />
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="shell about-grid">
-          <div className="panel">
-            <p className="eyebrow">What Mejia Software builds</p>
-            <h3>Useful systems with room to grow.</h3>
-            <p>Web applications, mobile experiences, automation, APIs, developer utilities, and AI features where AI provides genuine product value.</p>
-          </div>
-          <div className="panel">
-            <p className="eyebrow">Engineering approach</p>
-            <h3>AI-assisted, human-accountable.</h3>
-            <p>Requirements → research → architecture → implementation → review → testing → debugging → validation → deployment → iteration.</p>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+    <section className="section"><div className="shell about-grid"><div className="panel"><p className="eyebrow">What Mejia Software builds</p><h3>Useful systems with room to grow.</h3><p>Web applications, mobile experiences, automation, APIs, developer utilities, and AI features where AI provides genuine product value.</p></div><div className="panel"><p className="eyebrow">Engineering approach</p><h3>AI-assisted, human-accountable.</h3><p>Requirements → research → architecture → implementation → review → testing → debugging → validation → deployment → iteration.</p></div></div></section>
+  </>;
 }
