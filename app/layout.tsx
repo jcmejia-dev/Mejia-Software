@@ -14,9 +14,13 @@ export const metadata: Metadata = {
     default: "Mejia Software — Software built for real problems",
     template: "%s — Mejia Software",
   },
-  description:
-    "Independent software studio by Jamie Mejia building useful software, automation, open-source projects, and AI-powered tools.",
+  description: "Independent software studio by Jamie Mejia building useful software, automation, open-source projects, and AI-powered tools.",
   applicationName: "Mejia Software",
+  icons: {
+    icon: [{ url: "/mejia-signature.svg", type: "image/svg+xml" }],
+    shortcut: "/mejia-signature.svg",
+    apple: "/mejia-signature.svg",
+  },
   openGraph: {
     type: "website",
     title: "Mejia Software",
