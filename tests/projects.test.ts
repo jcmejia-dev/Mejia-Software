@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { projects } from "@/lib/projects";
+import { projects } from "../lib/projects";
 
 describe("project catalog", () => {
   it("uses unique slugs", () => {
