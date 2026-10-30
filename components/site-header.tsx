@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GitBranch, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
   ["Home", "/"],
@@ -24,15 +25,15 @@ export function SiteHeader() {
       <div className="shell header-inner">
         <Link className="brand" href="/" aria-label="Mejia Software home" onClick={() => setOpen(false)}>
           <Image className="brand-signature" src="/mejia-signature.svg" alt="" width={72} height={34} priority />
-          <span>
-            <strong>MEJIA SOFTWARE</strong>
-            <small>Independent software studio</small>
-          </span>
+          <span><strong>MEJIA SOFTWARE</strong><small>Independent software studio</small></span>
         </Link>
 
-        <button className="menu-button" type="button" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} onClick={() => setOpen((value) => !value)}>
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="header-actions">
+          <ThemeToggle />
+          <button className="menu-button" type="button" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} onClick={() => setOpen((value) => !value)}>
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
 
         <nav className={open ? "main-nav is-open" : "main-nav"} aria-label="Primary navigation">
           {navigation.map(([label, href]) => {
@@ -40,6 +41,7 @@ export function SiteHeader() {
             return <Link key={href} href={href} className={active ? "nav-link is-active" : "nav-link"} onClick={() => setOpen(false)}>{label}</Link>;
           })}
           <a className="nav-github" href="https://github.com/jcmejia-dev" target="_blank" rel="noreferrer"><GitBranch size={17} /> GitHub</a>
+          <ThemeToggle />
         </nav>
       </div>
     </header>
