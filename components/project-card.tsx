@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, GitBranch } from "lucide-react";
 import type { Project } from "@/lib/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -28,7 +28,7 @@ export function ProjectCard({ project }: { project: Project }) {
         )}
         {project.repoUrl ? (
           <a className="text-link" href={project.repoUrl} target="_blank" rel="noreferrer">
-            <Github size={15} /> Source
+            <GitBranch size={15} /> Source
           </a>
         ) : null}
       </div>

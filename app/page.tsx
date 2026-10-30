@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Code2, Github, Layers3, Sparkles } from "lucide-react";
+import { ArrowRight, Code2, GitBranch, Layers3, Sparkles } from "lucide-react";
 import { ProjectCard } from "@/components/project-card";
 import { WeatherWidget } from "@/components/weather-widget";
 import { labs, openSourceProjects, products, projects } from "@/lib/projects";
@@ -22,7 +22,7 @@ export default function HomePage() {
               <Link className="button" href="/products">Explore products <ArrowRight size={17} /></Link>
               <Link className="button button-secondary" href="/tools">Use free tools</Link>
               <a className="button button-secondary" href="https://github.com/jcmejia-dev" target="_blank" rel="noreferrer">
-                <Github size={17} /> View GitHub
+                <GitBranch size={17} /> View GitHub
               </a>
             </div>
           </div>

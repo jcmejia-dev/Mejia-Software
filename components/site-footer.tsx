@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { GitBranch } from "lucide-react";
 
 export function SiteFooter() {
   return (
@@ -15,7 +15,7 @@ export function SiteFooter() {
           <Link href="/open-source">Open Source</Link>
           <Link href="/about">About</Link>
           <a href="https://github.com/jcmejia-dev" target="_blank" rel="noreferrer">
-            <Github size={16} /> GitHub
+            <GitBranch size={16} /> GitHub
           </a>
         </div>
       </div>

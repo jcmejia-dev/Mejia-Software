@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Github, Menu, X } from "lucide-react";
+import { GitBranch, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navigation = [
@@ -59,7 +59,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noreferrer"
           >
-            <Github size={17} /> GitHub
+            <GitBranch size={17} /> GitHub
           </a>
         </nav>
       </div>
