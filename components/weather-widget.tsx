@@ -80,12 +80,20 @@ export function WeatherWidget() {
   useEffect(() => {
     const saved = window.localStorage.getItem("mejia-weather-city");
     if (!saved) return;
+
+    let timer: number | undefined;
     try {
       const location = JSON.parse(saved) as { latitude: number; longitude: number; label: string };
-      void loadWeather(location.latitude, location.longitude, location.label);
+      timer = window.setTimeout(() => {
+        void loadWeather(location.latitude, location.longitude, location.label);
+      }, 0);
     } catch {
       window.localStorage.removeItem("mejia-weather-city");
     }
+
+    return () => {
+      if (timer !== undefined) window.clearTimeout(timer);
+    };
   }, [loadWeather]);
 
   useEffect(() => {
@@ -104,9 +112,13 @@ export function WeatherWidget() {
         setLocalTime("");
       }
     };
-    updateTime();
+
+    const initialTimer = window.setTimeout(updateTime, 0);
     const timer = window.setInterval(updateTime, 60000);
-    return () => window.clearInterval(timer);
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(timer);
+    };
   }, [weather?.timezone]);
 
   const useMyLocation = () => {
